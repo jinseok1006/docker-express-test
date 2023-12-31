@@ -1,0 +1,22 @@
+version: '1'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    environment:
+      - PORT=3000
+      - MONGO_URL=mongodb://mongo:27017/prod
+    depends_on:
+      - mongo
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: dockerfile
+    ports:
+      - 8080:80
+  mongo:
+    image: mongo
+    volumes:
+      - ./db:/data/db
+    

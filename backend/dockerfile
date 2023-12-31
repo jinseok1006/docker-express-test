@@ -1,0 +1,6 @@
+FROM node
+WORKDIR /app
+COPY . .
+ENV NODE_ENV=production
+RUN npm install --production
+ENTRYPOINT [ "node", "server.js" ]
