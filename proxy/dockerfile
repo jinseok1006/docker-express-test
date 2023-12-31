@@ -1,4 +1,4 @@
 FROM nginx
-COPY ./conf /etc/nginx/conf.d
-# VOLUME [ "./conf:/etc/nginx/templates" ]
-ENTRYPOINT [ "nginx","-g","daemon off;" ]
+COPY ./conf /etc/nginx/templates
+CMD [ "nginx","-g","daemon off;" ]
+
